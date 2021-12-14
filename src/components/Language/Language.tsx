@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { useEffect, ReactNode } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
@@ -40,11 +40,15 @@ export const languages: ILanguages = {
 };
 
 const Language = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
 
   const dispatch = useAppDispatch();
 
   const language = useAppSelector(selectLanguage);
+
+  useEffect(() => {
+    i18n.changeLanguage(language);
+  }, [language, i18n]);
 
   const handleChange = (event: SelectChangeEvent) => {
     const language = event.target.value as Languages;
