@@ -6,8 +6,8 @@ import { routes, IRoute } from "./routes";
 
 const Pages = () => {
   const renderRoutes = () => {
-    return Object.values(routes).map(({ path, element }: IRoute) => {
-      return <Route key={path} path={path} element={element} />;
+    return Object.values(routes).map(({ key, path, element }: IRoute) => {
+      return <Route key={key} path={path} element={element} />;
     });
   };
 

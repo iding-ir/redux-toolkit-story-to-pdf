@@ -26,12 +26,12 @@ const Navbar = () => {
       return (
         navbar && (
           <Typography
+            key={key}
             variant="h6"
             noWrap
             component="div"
             sx={styles.link}
             data-selected={page === key}
-            key={key}
           >
             <Link to={path} onClick={() => handleClick(key)}>
               <Trans i18nKey={title} />
