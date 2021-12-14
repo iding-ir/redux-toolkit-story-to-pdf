@@ -8,6 +8,10 @@ export interface IStory {
   [key: string]: string;
 }
 
+export interface IStories {
+  [key: string]: IStory;
+}
+
 export interface Styles {
   [key: string]: SxProps<Theme>;
 }

@@ -7,4 +7,8 @@ export const styles: Styles = {
     flexWrap: "wrap",
     width: "100%",
   },
+  loader: {
+    position: "relative",
+    margin: "5rem auto",
+  },
 };
