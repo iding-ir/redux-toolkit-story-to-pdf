@@ -1,8 +1,8 @@
 import { HashRouter as Router } from "react-router-dom";
 
-import "./localization";
-import Pages from "./components/Pages/Pages";
-import Providers from "./components/Providers/Providers";
+import "../../localization";
+import Pages from "../Pages/Pages";
+import Providers from "../Providers/Providers";
 
 function App() {
   return (
