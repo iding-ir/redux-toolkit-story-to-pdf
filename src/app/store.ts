@@ -16,13 +16,12 @@ import storiesReducer from "../features/stories/slice";
 import themesReducer from "../features/themes/slice";
 import languagesReducer from "../features/languages/slice";
 import searchReducer from "../features/search/slice";
-import pagesReducer from "../features/pages/slice";
 
 const persistConfig = {
   key: "root",
   version: 1,
   storage,
-  blacklist: ["pages"],
+  blacklist: [],
 };
 
 const rootReducer = combineReducers({
@@ -30,7 +29,6 @@ const rootReducer = combineReducers({
   themes: themesReducer,
   languages: languagesReducer,
   search: searchReducer,
-  pages: pagesReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

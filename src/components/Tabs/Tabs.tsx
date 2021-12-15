@@ -1,23 +1,12 @@
 import Typography from "@mui/material/Typography";
-import { Link } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { NavLink } from "react-router-dom";
+import { Trans } from "react-i18next";
 
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { routes } from "../../routes";
 import { IRoute } from "../../types";
-import { selectPage, setPage } from "../../features/pages/slice";
 import { styles } from "./styles";
 
 const Tabs = () => {
-  const { t } = useTranslation();
-  const dispatch = useAppDispatch();
-
-  const page = useAppSelector(selectPage);
-
-  const handleClick = (key: string) => {
-    dispatch(setPage(key));
-  };
-
   return (
     <>
       {Object.values(routes).map(({ key, path, title, navbar }: IRoute) => {
@@ -29,11 +18,14 @@ const Tabs = () => {
               noWrap
               component="div"
               sx={styles.link}
-              data-selected={page === key}
             >
-              <Link to={path} onClick={() => handleClick(key)}>
-                {t(title as string)}
-              </Link>
+              <NavLink
+                className={({ isActive }) => (isActive ? "is-selected" : "")}
+                end
+                to={path}
+              >
+                <Trans i18nKey={title} />
+              </NavLink>
             </Typography>
           )
         );
