@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { routes, IRoute } from "../Pages/routes";
+import { routes } from "../../routes";
+import { IRoute } from "../../types";
 import { selectPage, setPage } from "../../features/pages/slice";
 import { styles } from "./styles";
 

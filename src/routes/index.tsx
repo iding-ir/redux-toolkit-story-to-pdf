@@ -1,21 +1,8 @@
-import { ReactElement, JSXElementConstructor } from "react";
-
-import Home from "../Home/Home";
-import Create from "../Create/Create";
-import Edit from "../Edit/Edit";
-import Story from "../Story/Story";
-
-export interface IRoute {
-  key: string;
-  path: string;
-  element: ReactElement<any, string | JSXElementConstructor<any>>;
-  navbar: boolean;
-  title?: string;
-}
-
-export interface IRoutes {
-  [key: string]: IRoute;
-}
+import { IRoutes } from "../types";
+import Home from "../components/Home/Home";
+import Create from "../components/Create/Create";
+import Edit from "../components/Edit/Edit";
+import Story from "../components/Story/Story";
 
 export const routes: IRoutes = {
   home: {
