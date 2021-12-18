@@ -56,7 +56,7 @@ const Language = () => {
     dispatch(setLanguage(language));
   };
 
-  const renderStories = () =>
+  const renderLanguages = () =>
     Object.values(languages).map((language: ILanguage) => {
       return (
         <MenuItem value={language.value} key={language.value}>
@@ -77,7 +77,7 @@ const Language = () => {
         variant="standard"
         disableUnderline={true}
       >
-        {renderStories()}
+        {renderLanguages()}
       </Select>
     </FormControl>
   );
