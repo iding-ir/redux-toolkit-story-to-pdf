@@ -12,6 +12,7 @@ Redux Toolkit Story to PDF creates stories on user's device that are downloadabl
 
 ## Tech Stack
 
+- [Typescript](https://www.typescriptlang.org/)
 - [React](https://reactjs.org)
 - [Redux](https://redux.js.org)
 - [Redux Toolkit](https://redux-toolkit.js.org)
