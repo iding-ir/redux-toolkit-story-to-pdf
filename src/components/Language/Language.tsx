@@ -1,4 +1,4 @@
-import { useEffect, ReactNode } from "react";
+import { useEffect } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
@@ -7,37 +7,9 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useTranslation } from "react-i18next";
 
 import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { ReactComponent as IconEN } from "../../assets/images/icon-en.svg";
-import { ReactComponent as IconES } from "../../assets/images/icon-es.svg";
-import {
-  selectLanguage,
-  setLanguage,
-  Languages,
-} from "../../features/languages/slice";
+import { selectLanguage, setLanguage } from "../../features/languages/slice";
+import { languages, ILanguage } from ".";
 import { styles } from "./styles";
-
-export interface ILanguage {
-  value: string;
-  name: string;
-  icon: ReactNode;
-}
-
-export interface ILanguages {
-  [key: string]: ILanguage;
-}
-
-export const languages: ILanguages = {
-  en: {
-    value: "en",
-    name: "Language.en",
-    icon: <IconEN />,
-  },
-  es: {
-    value: "es",
-    name: "Language.es",
-    icon: <IconES />,
-  },
-};
 
 const Language = () => {
   const { t, i18n } = useTranslation();
@@ -51,7 +23,7 @@ const Language = () => {
   }, [language, i18n]);
 
   const handleChange = (event: SelectChangeEvent) => {
-    const language = event.target.value as Languages;
+    const language = event.target.value;
 
     dispatch(setLanguage(language));
   };

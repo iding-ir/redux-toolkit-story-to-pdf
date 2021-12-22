@@ -1,22 +1,21 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 import { RootState } from "../../app/store";
-
-export type Languages = "en" | "es";
+import getLanguage from "../../components/Language/getLanguage";
 
 export interface IState {
-  current: Languages;
+  current: string;
 }
 
 const initialState: IState = {
-  current: "en",
+  current: getLanguage().iLanguage,
 };
 
 export const slice = createSlice({
   name: "languages",
   initialState,
   reducers: {
-    setLanguage: (state, action: PayloadAction<Languages>) => {
+    setLanguage: (state, action: PayloadAction<string>) => {
       state.current = action.payload;
     },
   },
