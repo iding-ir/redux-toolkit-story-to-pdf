@@ -1,17 +1,20 @@
 import Typography from "@mui/material/Typography";
 import { NavLink } from "react-router-dom";
-import { Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 import { routes } from "../../routes";
 import { IRoute } from "../../types";
 import { styles } from "./styles";
 
 const Tabs = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       {Object.values(routes).map(({ key, path, title, navbar }: IRoute) => {
         return (
-          navbar && (
+          navbar &&
+          title && (
             <Typography
               key={key}
               variant="h6"
@@ -24,7 +27,7 @@ const Tabs = () => {
                 end
                 to={path}
               >
-                <Trans i18nKey={title} />
+                {t(title)}
               </NavLink>
             </Typography>
           )
