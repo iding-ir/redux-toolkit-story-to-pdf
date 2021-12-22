@@ -2,7 +2,7 @@ import { Helmet } from "react-helmet-async";
 
 import { useAppSelector } from "../../app/hooks";
 import { selectMode } from "../../features/themes/slice";
-import { getTheme } from "../Theme/getTheme";
+import { useTheme } from "../Theme/useTheme";
 
 interface Props {
   title: string;
@@ -10,7 +10,7 @@ interface Props {
 
 const Head = ({ title }: Props) => {
   const mode = useAppSelector(selectMode);
-  const theme = getTheme(mode);
+  const { theme } = useTheme(mode);
 
   return (
     <Helmet>

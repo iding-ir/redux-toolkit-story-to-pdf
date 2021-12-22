@@ -8,7 +8,7 @@ import { useAppSelector } from "../../app/hooks";
 import PDF from "../PDF/PDF";
 import { IStory } from "../../types";
 import { selectMode } from "../../features/themes/slice";
-import { getTheme } from "../Theme/getTheme";
+import { useTheme } from "../Theme/useTheme";
 import { styles } from "./styles";
 
 interface Props {
@@ -17,7 +17,7 @@ interface Props {
 
 const Download = ({ story }: Props) => {
   const mode = useAppSelector(selectMode);
-  const theme = getTheme(mode);
+  const { theme } = useTheme(mode);
 
   return (
     <Box sx={styles.wrapper}>
