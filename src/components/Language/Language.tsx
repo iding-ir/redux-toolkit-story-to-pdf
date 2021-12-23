@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import ListItemText from "@mui/material/ListItemText";
@@ -12,15 +11,11 @@ import { languages, ILanguage } from ".";
 import { styles } from "./styles";
 
 const Language = () => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const dispatch = useAppDispatch();
 
   const language = useAppSelector(selectLanguage);
-
-  useEffect(() => {
-    i18n.changeLanguage(language);
-  }, [language, i18n]);
 
   const handleChange = (event: SelectChangeEvent) => {
     const language = event.target.value;
